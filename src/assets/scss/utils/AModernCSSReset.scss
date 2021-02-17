@@ -1,0 +1,323 @@
+/* Set core root defaults */
+html {
+    scroll-behavior: smooth;
+}
+//! добавил
+html {
+    line-height: $mainLineHeight;
+    font-size: $mainFontSize;
+    color: $mainFontColor;
+    height: 100%;
+    @media screen and (max-width: $desktopWidth) {
+        font-size: 16px;
+    }
+    @media screen and (max-width: $tableWidth) {
+        font-size: 15px;
+    }
+    @media screen and (max-width: $phoneWidth) {
+        font-size: 14px;
+    }
+}
+/* Box sizing rules */
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Set core body defaults */
+/* Выставляем основные настройки по-умолчанию для body */
+//! добавил
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    // font-family: $mainFont;
+    font-size: $mainFontSize;
+    font-weight: $mainFontWeight;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Remove default margin */
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+ol,
+p,
+ul {
+    line-height: 1.5;
+}
+/* Remove default padding */
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+/* Remove list styles on ul, ol elements with a class attribute */
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+// Title
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.65rem;
+    padding-bottom: 0.3rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+/* A elements that don't have a class get default styles */
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a {
+    text-decoration: none;
+    font-weight: 500;
+}
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+    // button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+img:not([alt]) {
+    filter: blur(10px);
+}
+/* ==================================================================*/
+//! добавил
+section,
+.section {
+    position: relative;
+    padding: 20px 0;
+    @media screen and (max-width: $smDesktopWidth) {
+        padding: 36px 0;
+    }
+    @media screen and (max-width: $tableWidth) {
+        padding: 28px 0;
+    }
+    @media screen and (max-width: $phoneWidth) {
+        padding: 20px 0;
+    }
+}
+//====================================================================
+//! добавил
+hr {
+    margin: 1rem 0;
+}
+strong,
+.bold {
+    font-weight: 500;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.wrapper-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    flex: 0 0 auto;
+    position: relative;
+    margin: 0 auto;
+    // max-width: $desktopWidth;  //!!!!! изменил контейнер max-width: 1000px; с 1280
+    @media screen and (max-width: $smDesktopWidth) {
+        max-width: $tableWidth;
+    }
+    @media screen and (max-width: $tableWidth) {
+        max-width: $phoneWidth;
+    }
+    @media screen and (max-width: $phoneWidth) {
+        max-width: $smPhoneWidth;
+    }
+}
+//====================================================================
+// Style Butttons
+.btn {
+    color: #0077ff;
+    position: relative;
+    place-content: center;
+    place-items: center;
+    width: fit-content;
+    border-radius: 99px;
+    letter-spacing: 0.05em;
+    border: 1px solid #0077ff;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 10px;
+    padding: 0.5rem 1.5rem;
+    white-space: nowrap;
+    font-weight: 700;
+    outline: none;
+    background: #fff;
+    transition: all 0.22s;
+    box-shadow: 2px 2px 3px #606266;
+    &:active{
+        box-shadow: none;
+    }
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 1 !important;
+    background: #eee !important;
+    border-color: #ddd !important;
+    color: #999 !important;
+}
+
+
+.btn.blue {
+    background: #0077ff;
+    color: #fff;
+}
+//====================================================================
+// Default styling classes
+// Стилизационные классы по умолчанию
+.pt-2 {
+    padding-top: 2rem;
+}
+
+.pt-1 {
+    padding-top: 1rem;
+}
+
+.pt-5 {
+    padding-top: 5rem;
+}
+.form-group {
+    border: none;
+    max-width: 50%;
+}
+.form-control {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+.form-control {
+    position: relative;
+    margin: 0 0 0.5rem 0;
+    outline: none;
+    border: 2px solid #ccc;
+    display: block;
+    width: 100%;
+    color: #2c3e50;
+    padding: 0.5rem 1.5rem;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+.card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+.card.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.modal {
+    position: fixed;
+    top: 60px;
+    width: 600px;
+    padding: 1rem;
+    background: #fff;
+    z-index: 1000;
+    left: 50%;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+//====================================================================

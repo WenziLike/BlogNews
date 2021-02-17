@@ -1,5 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <div class="wrapper-content">
+        <section>
+            <div class="container">
+                <div class="about">
+                    <h2>About Page</h2>
+                </div>
+            </div>
+        </section>
+    </div>
 </template>
+
+<script>
+
+export default {
+    name: 'about'
+}
+</script>
