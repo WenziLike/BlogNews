@@ -4,17 +4,13 @@ html {
 }
 //! добавил
 html {
-    line-height: $mainLineHeight;
-    font-size: $mainFontSize;
-    color: $mainFontColor;
-    height: 100%;
-    @media screen and (max-width: $desktopWidth) {
+    @media screen and (max-width: 1280px) {
         font-size: 16px;
     }
-    @media screen and (max-width: $tableWidth) {
+    @media screen and (max-width: 768px) {
         font-size: 15px;
     }
-    @media screen and (max-width: $phoneWidth) {
+    @media screen and (max-width: 480px) {
         font-size: 14px;
     }
 }
@@ -32,13 +28,15 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    text-rendering: optimizeSpeed;
     line-height: 1.5;
-    // font-family: $mainFont;
-    font-size: $mainFontSize;
-    font-weight: $mainFontWeight;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2c3e50;
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 /* Remove default margin */
 /* Убираем внешние отступы */
@@ -146,13 +144,13 @@ section,
 .section {
     position: relative;
     padding: 20px 0;
-    @media screen and (max-width: $smDesktopWidth) {
+    @media screen and (max-width: 1024px) {
         padding: 36px 0;
     }
-    @media screen and (max-width: $tableWidth) {
+    @media screen and (max-width: 768px) {
         padding: 28px 0;
     }
-    @media screen and (max-width: $phoneWidth) {
+    @media screen and (max-width: 480px) {
         padding: 20px 0;
     }
 }
@@ -185,18 +183,18 @@ strong,
     position: relative;
     margin: 0 auto;
     // max-width: $desktopWidth;  //!!!!! изменил контейнер max-width: 1000px; с 1280
-    @media screen and (max-width: $smDesktopWidth) {
-        max-width: $tableWidth;
+    @media screen and (max-width: 1024px) {
+        max-width: 768px;
     }
-    @media screen and (max-width: $tableWidth) {
-        max-width: $phoneWidth;
+    @media screen and (max-width: 768px) {
+        max-width: 480px;
     }
-    @media screen and (max-width: $phoneWidth) {
-        max-width: $smPhoneWidth;
+    @media screen and (max-width: 480px) {
+        max-width: 320px;
     }
 }
 //====================================================================
-// Style Butttons
+// Style Buttons
 .btn {
     color: #0077ff;
     position: relative;
@@ -216,10 +214,10 @@ strong,
     background: #fff;
     transition: all 0.22s;
     box-shadow: 2px 2px 3px #606266;
-    &:active{
+    &:active {
         box-shadow: none;
     }
-    &:hover{
+    &:hover {
         opacity: 0.8;
     }
 }
@@ -257,10 +255,6 @@ strong,
 }
 .form-control {
     position: relative;
-    margin-bottom: 0.5rem;
-}
-.form-control {
-    position: relative;
     margin: 0 0 0.5rem 0;
     outline: none;
     border: 2px solid #ccc;
@@ -284,19 +278,6 @@ strong,
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0;
 }
 
 .modal {
