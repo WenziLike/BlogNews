@@ -28,7 +28,8 @@ export default {
             navbar: [
                 { url: 'name:/home', title: 'Home' },
                 { url: 'name:/about', title: 'About Us' },
-                { url: 'name:/register', title: 'Sign up' }
+                { url: 'name:/register', title: 'Sign up' },
+                { url: 'name:/login', title: 'Sign in' }
             ]
         }
     }

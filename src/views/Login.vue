@@ -3,20 +3,12 @@
         <section>
             <div class="container">
                 <div class="wrapper-register">
-                    <h1>Sign Up</h1>
+                    <h1>Sign In</h1>
                     <span>
-                        <router-link :to="{name: 'login'}">Have an account ?</router-link>
+                        <router-link :to="{name: 'register'}">Need an account ?</router-link>
                     </span>
                     <validation-errors v-if="validationErrors" :validation-errors="validationErrors"/>
                     <form @submit.prevent="onSubmit">
-                        <fieldset class="form-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Username"
-                              v-model="username"
-                            >
-                        </fieldset>
                         <fieldset class="form-group">
                             <input
                               type="text"
@@ -33,7 +25,7 @@
                               v-model="password"
                             >
                         </fieldset>
-                        <button class="btn" :disabled="isSubmitting">Sing Up</button>
+                        <button class="btn" :disabled="isSubmitting">Sing In</button>
                     </form>
                 </div>
             </div>
@@ -47,13 +39,12 @@ import { actionTypes } from '@/store/modules/auth'
 import { mapState } from 'vuex'
 
 export default {
-    name: 'register',
+    name: 'login',
     components: {
         ValidationErrors
     },
     data() {
         return {
-            username: '',
             email: '',
             password: ''
         }
@@ -66,27 +57,19 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log('Submitted form')
-            this.$store.dispatch(actionTypes.register, {
-                username: this.username,
+            // console.log('Submitted form')
+            this.$store.dispatch(actionTypes.login, {
                 email: this.email,
                 password: this.password
-            }).then(user => {
-                console.log('successfully register user', user)
+            }).then(() => {
+                // console.log('successfully login user', user)
                 this.$router.push({ name: 'home' })
             })
         }
     }
 }
 </script>
-/*    computed: {
-isSubmitting() {
-return this.$store.state.auth.isSubmitting
-},
-validationErrors() {
-return this.$store.state.auth.validationErrors
-}
-},*/
+
 <style scoped lang="scss">
 .wrapper-register, .form-group {
     text-align: center;

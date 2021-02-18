@@ -10,7 +10,3 @@ export default {
     components: { TheNavBar }
 }
 </script>
-
-<style lang="scss">
-
-</style>
