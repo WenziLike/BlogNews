@@ -12,3 +12,94 @@
 // основные блоки страницы сайта modules
 // ===============================================================
 // общие стили
+.navbar {
+    padding: .6%;
+    box-shadow: 1px 1px 4px #434345;
+    position: fixed;
+    width: 100%;
+    z-index: 998;
+    background-color: #434345;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo {
+        a {
+            font-weight: 900;
+            color: #0077ff;
+        }
+        strong {
+            font-size: 1.2rem;
+        }
+    }
+    &-list {
+        display: flex;
+    }
+    &-item {
+        padding-left: 25px;
+        display: flex;
+        align-items: center;
+    }
+    &-link {
+        color: #999999;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all .2s;
+        display: flex;
+        align-items: center;
+        &:hover {
+            color: #0077ff;
+        }
+        &.active {
+            padding-bottom: 6px;
+            color: #ffffff;
+            border-bottom: 3px solid #0077ff;
+        }
+    }
+    &-avatar{
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+    &-img {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+.home, .about {
+    text-align: center;
+    margin-top: 300px;
+}
+.wrapper-register, .wrapper-login, {
+    .validation-errors {
+        color: darkred;
+        font-weight: 600;
+    }
+    form {
+        .btn {
+            margin: 20px 0 40px 0;
+            padding: .7rem 4rem;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+    }
+}
+.form-control {
+    border-radius: 25px;
+}
+.wrapper-register, .wrapper-login, {
+    text-align: center;
+    margin: 120px 0 0 auto;
+    .form-group {
+        margin: 0 auto;
+    }
+    span {
+        a {
+            font-weight: 400;
+            color: #0077ff;
+        }
+    }
+}

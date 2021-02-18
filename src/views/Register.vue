@@ -4,10 +4,13 @@
             <div class="container">
                 <div class="wrapper-register">
                     <h1>Sign Up</h1>
-                    <span>
-                        <router-link :to="{name: 'login'}">Have an account ?</router-link>
-                    </span>
-                    <validation-errors v-if="validationErrors" :validation-errors="validationErrors"/>
+
+                    <validation-errors
+                      class="validation-errors"
+                      v-if="validationErrors"
+                      :validation-errors="validationErrors"
+                    />
+
                     <form @submit.prevent="onSubmit">
                         <fieldset class="form-group">
                             <input
@@ -33,8 +36,12 @@
                               v-model="password"
                             >
                         </fieldset>
+
                         <button class="btn" :disabled="isSubmitting">Sing Up</button>
                     </form>
+                    <span>
+                        <router-link :to="{name: 'login'}">Have an account ?</router-link>
+                    </span>
                 </div>
             </div>
         </section>
@@ -66,13 +73,13 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log('Submitted form')
+            // console.log('Submitted form')
             this.$store.dispatch(actionTypes.register, {
                 username: this.username,
                 email: this.email,
                 password: this.password
-            }).then(user => {
-                console.log('successfully register user', user)
+            }).then(() => {
+                // console.log('successfully register user', user)
                 this.$router.push({ name: 'home' })
             })
         }
@@ -87,9 +94,3 @@ validationErrors() {
 return this.$store.state.auth.validationErrors
 }
 },*/
-<style scoped lang="scss">
-.wrapper-register, .form-group {
-    text-align: center;
-    margin: 0 auto;
-}
-</style>

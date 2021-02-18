@@ -2,12 +2,9 @@
     <div class="wrapper-content">
         <section>
             <div class="container">
-                <div class="wrapper-register">
+                <div class="wrapper-login">
                     <h1>Sign In</h1>
-                    <span>
-                        <router-link :to="{name: 'register'}">Need an account ?</router-link>
-                    </span>
-                    <validation-errors v-if="validationErrors" :validation-errors="validationErrors"/>
+                    <validation-errors class="validation-errors" v-if="validationErrors" :validation-errors="validationErrors"/>
                     <form @submit.prevent="onSubmit">
                         <fieldset class="form-group">
                             <input
@@ -27,6 +24,9 @@
                         </fieldset>
                         <button class="btn" :disabled="isSubmitting">Sing In</button>
                     </form>
+                    <span>
+                        <router-link :to="{name: 'register'}">Need an account ?</router-link>
+                    </span>
                 </div>
             </div>
         </section>
@@ -69,10 +69,3 @@ export default {
     }
 }
 </script>
-
-<style scoped lang="scss">
-.wrapper-register, .form-group {
-    text-align: center;
-    margin: 0 auto;
-}
-</style>

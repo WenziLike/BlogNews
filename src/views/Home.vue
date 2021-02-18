@@ -2,7 +2,7 @@
     <div class="wrapper-content">
         <section>
             <div class="container">
-                <div class="about">
+                <div class="home">
                     <h2>Home Page</h2>
                 </div>
             </div>

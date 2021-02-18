@@ -1,18 +1,18 @@
 import authApi from '@/api/auth'
 import { setItem } from '@/helpers/persistanceStorage'
-
+/* ==================================================== */
 const state = {
     isSubmitting: false,
     currentUser: null,
     validationErrors: null,
-    isLoggedId: null
+    isLoggedIn: null
 }
-
+/* ==================================================== */
 export const mutationTypes = {
     registerStart: '[auth] registerStart',
     registerSuccess: '[auth] registerSuccess',
     registerFailure: '[auth] registerFailure',
-
+    /* ================ */
     loginStart: '[auth] loginStart',
     loginSuccess: '[auth] loginSuccess',
     loginFailure: '[auth] loginFailure'
@@ -21,7 +21,7 @@ export const actionTypes = {
     register: '[auth] register',
     login: '[auth] login'
 }
-
+/* ==================================================== */
 const mutations = {
     [mutationTypes.registerStart](state) {
         state.isSubmitting = true
@@ -30,12 +30,13 @@ const mutations = {
     [mutationTypes.registerSuccess](state, payload) {
         state.isSubmitting = false
         state.currentUser = payload
-        state.isLoggedId = true
+        state.isLoggedIn = true
     },
     [mutationTypes.registerFailure](state, payload) {
         state.isSubmitting = false
         state.validationErrors = payload
     },
+    /* ================ */
     [mutationTypes.loginStart](state) {
         state.isSubmitting = true
         state.validationErrors = null
@@ -43,14 +44,14 @@ const mutations = {
     [mutationTypes.loginSuccess](state, payload) {
         state.isSubmitting = false
         state.currentUser = payload
-        state.isLoggedId = true
+        state.isLoggedIn = true
     },
     [mutationTypes.loginFailure](state, payload) {
         state.isSubmitting = false
         state.validationErrors = payload
     }
 }
-
+/* ==================================================== */
 const actions = {
     [actionTypes.register](context, credentials) {
         return new Promise(resolve => {
@@ -69,6 +70,7 @@ const actions = {
                 })
         })
     },
+    /* ==================================================== */
     [actionTypes.login](context, credentials) {
         return new Promise(resolve => {
             context.commit(mutationTypes.loginStart)
@@ -87,6 +89,7 @@ const actions = {
         })
     }
 }
+/* ==================================================== */
 export default {
     state,
     mutations,
