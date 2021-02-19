@@ -2,6 +2,7 @@
     <header>
         <nav class="navbar">
             <div class="container">
+                <!-- ======================= Logo -->
                 <div class="logo">
                     <router-link :to="{name: 'home'}">
                         <h1>
@@ -11,23 +12,25 @@
                     </router-link>
                 </div>
                 <ul class="navbar-list">
+                    <!-- ======================= NavBar Menu -->
+                    <template v-if="isAnonymous">
+                        <li class="navbar-item" v-for="link in navbar" :key="link.title">
+                            <router-link :to="link.url" class="navbar-link">
+                                {{ link.title }}
+                            </router-link>
+                        </li>
+                    </template>
+                    <!-- ======================= NavBar when logged in -->
                     <template v-if="isLoggedIn">
                         <li class="navbar-item"
                             v-for="link in navbarLogin"
                             :key="link.title">
                             <router-link :to="link.url" class="navbar-link">
-                                {{ link.title }}
-                                <div class="navbar-avatar" v-if="link.title === 'User'">
-                                    {{ currentUser.username }}
-                                    <img :src="currentUser.image" alt="logo" class="navbar-img">
-                                </div>
+                                {{ link.title }} &nbsp;
                             </router-link>
-                        </li>
-                    </template>
-                    <template v-else>
-                        <li class="navbar-item" v-for="link in navbar" :key="link.title">
-                            <router-link :to="link.url" class="navbar-link">
-                                {{ link.title }}
+                            <router-link :to="link.url" v-if="!link.title" class="navbar-link">
+                                <img :src="currentUser.image" alt="logo" class="navbar-img">
+                                {{ currentUser.username }}
                             </router-link>
                         </li>
                     </template>
@@ -38,7 +41,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { getterTypes } from '@/store/modules/auth'
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'TheNavBar',
@@ -46,22 +50,36 @@ export default {
         return {
             navbar: [
                 { url: 'name:/home', title: 'Home' },
-                { url: 'name:/about', title: 'About Us' },
+                { url: 'name:/about', title: 'About' },
                 { url: 'name:/register', title: 'Sign up' },
                 { url: 'name:/login', title: 'Sign in' }
             ],
             navbarLogin: [
                 { url: 'name:/createArticle', title: 'New Article' },
                 { url: 'name:/settings', title: 'Settings' },
-                { url: 'name:/userProfile, params: {slug: currentUser.username', title: 'User' }
+                { url: 'name:/userProfile, params: {slug: currentUser.username' }
             ]
         }
     },
     computed: {
-        ...mapState({
-            currentUser: state => state.auth.currentUser,
-            isLoggedIn: state => state.auth.isLoggedIn
+        ...mapGetters({
+            currentUser: getterTypes.currentUser,
+            isLoggedIn: getterTypes.isLoggedIn,
+            isAnonymous: getterTypes.isAnonymous
         })
+        // ...mapState({
+        //     currentUser: state => state.auth.currentUser,
+        //     isLoggedIn: state => state.auth.isLoggedIn
+        // }),
+        // currentUser() {
+        //     return this.$store.getters[getterTypes.currentUser]
+        // },
+        // isLoggedIn() {
+        //     return this.$store.getters[getterTypes.isLoggedIn]
+        // },
+        // isAnonymous() {
+        //     return this.$store.getters[getterTypes.isAnonymous]
+        // }
     }
 }
 </script>

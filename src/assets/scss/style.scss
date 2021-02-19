@@ -35,19 +35,16 @@
     }
     &-list {
         display: flex;
+        align-items: center;
     }
     &-item {
         padding-left: 25px;
-        display: flex;
-        align-items: center;
     }
     &-link {
         color: #999999;
         font-weight: 700;
         font-size: 1rem;
         transition: all .2s;
-        display: flex;
-        align-items: center;
         &:hover {
             color: #0077ff;
         }
@@ -57,12 +54,9 @@
             border-bottom: 3px solid #0077ff;
         }
     }
-    &-avatar{
-        display: flex;
-        align-items: center;
-        padding-left: 10px;
-    }
     &-img {
+        display: inline-block;
+        margin-left: 10px;
         vertical-align: middle;
         width: 50px;
         height: 50px;
