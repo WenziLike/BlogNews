@@ -33,21 +33,23 @@
                     <div class="tag-list">TAG LIST</div>
                 </div>
             </div>
+            <!-- ================ Component Pagination -->
+            <pagination
+              :total="feed.articlesCount"
+              :limit="limit"
+              :url="baseUrl"
+              :current-page="currentPage"
+            />
         </div>
-        <!-- ================ Component Pagination -->
-        <pagination
-          :total="total"
-          :limit="limit"
-          :url="url"
-          :current-page="currentPage"
-        />
     </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/feed'
+import { limit } from '@/helpers/variebles'
 import Pagination from '@/components/Pagination'
+import { stringify, parseUrl } from 'query-string'
 
 export default {
     name: 'feed',
@@ -58,26 +60,56 @@ export default {
             required: true
         }
     },
-    data() {
-        return {
-            total: 500,
-            limit: 10,
-            currentPage: 5,
-            url: '/'
-        }
-    },
     computed: {
         ...mapState({
             isLoading: state => state.feed.isLoading,
             feed: state => state.feed.data,
             error: state => state.feed.error
-        })
+        }),
+        limit() {
+            return limit
+        },
+        currentPage() {
+            // console.log('route :', this.$route)
+            return Number(this.$route.query.page || '1')
+        },
+        baseUrl() {
+            return this.$route.path
+        },
+        offset() {
+            return this.currentPage * limit - limit
+        }
+    },
+    methods: {
+        fetchFeed() {
+            const parsedUrl = parseUrl(this.apiUrl)
+            const stringifiedParams = stringify({
+                limit,
+                offset: this.offset,
+                ...parsedUrl.query
+            })
+            const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
+            this.$store.dispatch(actionTypes.getFeed, { apiUrl: apiUrlWithParams })
+            console.group()
+            console.log(apiUrlWithParams)
+            // console.log('stryngifParams : ', stringifiedParams)
+            // console.log('stringify:', stringify)
+            // console.log('parseUrl :', parsedUrl)
+            // console.log('init feed')
+            // console.log('Array URL', this.feed)
+            // console.log(this.feed.articles)
+            console.groupEnd()
+        }
+    },
+    watch: {
+        currentPage() {
+            console.log('currentPage changed')
+            this.fetchFeed()
+        }
+
     },
     mounted() {
-        console.log('init feed')
-        console.log('Array URL', this.feed)
-        // console.log(this.feed.articles)
-        this.$store.dispatch(actionTypes.getFeed, { apiUrl: this.apiUrl })
+        this.fetchFeed()
     }
 }
 </script>

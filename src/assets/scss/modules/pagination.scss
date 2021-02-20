@@ -7,15 +7,20 @@
         width: 60%;
     }
     &-item {
+        margin: 5px;
+        border-radius: 4px;
+        color: #2c3e50;
+        cursor: pointer;
+        border: 1px solid #606266;
+    }
+    .pagination-link {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 5px;
-        border-radius: 4px;
+        cursor: pointer;
         width: 40px;
         height: 40px;
-        color: #2c3e50;
-        border: 2px solid #606266;
+        color: #0077ff;
     }
     &-item.active {
         color: green;
