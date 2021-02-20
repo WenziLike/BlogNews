@@ -1,0 +1,57 @@
+.feed {
+    &-card {
+        display: block;
+        margin: 0 auto;
+        max-width: 600px;
+        font-family: "Merriweather", serif;
+        padding: 1rem;
+        border-radius: 4px;
+        //box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        hr {
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+        }
+    }
+    &-header {
+        &-items {
+            display: flex;
+            align-items: center;
+            img {
+                display: inline-block;
+                margin: 0 14px;
+                vertical-align: middle;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            a {
+                color: #0077ff;
+            }
+        }
+        .date {
+            color: #606266;
+            font-weight: 500;
+            font-style: italic;
+            text-decoration: underline;
+        }
+    }
+    &-body {
+        .title {
+            color: #0077ff;
+        }
+        .descr {
+            color: #2c3e50;
+        }
+
+    }
+    &-footer {
+        display: flex;
+        justify-content: space-around;
+        .read {
+            color: #2c3e50;
+        }
+        .tag-list {
+            text-align: right;
+        }
+    }
+}
