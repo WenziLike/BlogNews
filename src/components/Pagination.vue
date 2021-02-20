@@ -1,14 +1,15 @@
 <template>
-    <ul class="pagination">
-        <li v-for="page in pages" :key="page"
-            class="pagination-item"
-            :class="{active: currentPage === page}"
-        >
-            <router-link :to="{path: url, query: {page: page}}" class="pagination-link">
-                {{ page }}
-            </router-link>
-        </li>
-    </ul>
+    <section class="pagination">
+        <ul class="pagination-list">
+            <li v-for="page in pages" :key="page"
+                class="pagination-item" :class="{ active: currentPage === page }">
+                <router-link :to="{ path: url, query: { page: page }}"
+                             class="pagination-link">
+                    {{ page }}
+                </router-link>
+            </li>
+        </ul>
+    </section>
 </template>
 
 <script>
@@ -43,7 +44,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

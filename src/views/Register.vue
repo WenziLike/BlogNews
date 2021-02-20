@@ -1,51 +1,45 @@
 <template>
-    <div class="wrapper-content">
-        <section>
-            <div class="container">
-                <div class="wrapper-register">
-                    <h1>Sign Up</h1>
+    <section class="register">
+        <h1>Sign Up</h1>
+        <!-- ================ Validation -->
+        <validation-errors
+          class="validation-errors"
+          v-if="validationErrors"
+          :validation-errors="validationErrors"
+        />
+        <!-- ================ Form -->
+        <form @submit.prevent="onSubmit">
+            <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Username"
+                  v-model="username"
+                >
+            </fieldset>
+            <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="email"
+                >
+            </fieldset>
+            <fieldset class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  v-model="password"
+                >
+            </fieldset>
 
-                    <validation-errors
-                      class="validation-errors"
-                      v-if="validationErrors"
-                      :validation-errors="validationErrors"
-                    />
-
-                    <form @submit.prevent="onSubmit">
-                        <fieldset class="form-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Username"
-                              v-model="username"
-                            >
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Email"
-                              v-model="email"
-                            >
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input
-                              type="password"
-                              class="form-control"
-                              placeholder="Password"
-                              v-model="password"
-                            >
-                        </fieldset>
-
-                        <button class="btn" :disabled="isSubmitting">Sing Up</button>
-                    </form>
-                    <span>
-                        <router-link :to="{name: 'login'}">Have an account ?</router-link>
-                    </span>
-                </div>
-            </div>
-        </section>
-    </div>
+            <button class="btn" :disabled="isSubmitting">Sing Up</button>
+        </form>
+        <span>
+            <router-link :to="{name: 'login'}">Have an account ?</router-link>
+        </span>
+    </section>
 </template>
 
 <script>
@@ -80,7 +74,7 @@ export default {
                 password: this.password
             }).then(() => {
                 // console.log('successfully register user', user)
-                this.$router.push({ name: 'home' })
+                this.$router.push({ name: 'globalFeed' })
             })
         }
     }

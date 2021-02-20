@@ -10,23 +10,23 @@ const state = {
 }
 /* ==================================================== */
 export const mutationTypes = {
-    registerStart: '[auth] registerStart',
-    registerSuccess: '[auth] registerSuccess',
-    registerFailure: '[auth] registerFailure',
+    registerStart: '[auth] Register Start',
+    registerSuccess: '[auth] Register Success',
+    registerFailure: '[auth] Register Failure',
     /* ================ */
-    loginStart: '[auth] loginStart',
-    loginSuccess: '[auth] loginSuccess',
-    loginFailure: '[auth] loginFailure',
+    loginStart: '[auth] Login Start',
+    loginSuccess: '[auth] Login Success',
+    loginFailure: '[auth] Login Failure',
     /* ================ */
-    getCurrentUserStart: '[auth] getCurrentUserStart',
-    getCurrentUserSuccess: '[auth] getCurrentUserSuccess',
-    getCurrentUserFailure: '[auth] getCurrentUserFailure'
+    getCurrentUserStart: '[auth] Get Current User Start',
+    getCurrentUserSuccess: '[auth] Get Current User Success',
+    getCurrentUserFailure: '[auth] Get Current User Failure'
 }
 
 export const actionTypes = {
-    register: '[auth] register',
-    login: '[auth] login',
-    getCurrentUser: '[auth] getCurrentUser'
+    register: '[auth] Register',
+    login: '[auth] Login',
+    getCurrentUser: '[auth] Get Current User'
 }
 
 export const getterTypes = {
@@ -69,8 +69,8 @@ const mutations = {
     },
     [mutationTypes.loginSuccess](state, payload) {
         state.isSubmitting = false
-        state.currentUser = payload
         state.isLoggedIn = true
+        state.currentUser = payload
     },
     [mutationTypes.loginFailure](state, payload) {
         state.isSubmitting = false
@@ -82,8 +82,8 @@ const mutations = {
     },
     [mutationTypes.getCurrentUserSuccess](state, payload) {
         state.isLoading = false
-        state.currentUser = payload
         state.isLoggedIn = true
+        state.currentUser = payload
     },
     [mutationTypes.getCurrentUserFailure](state) {
         state.isLoading = false

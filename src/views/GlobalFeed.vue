@@ -1,17 +1,13 @@
 <template>
-    <div class="wrapper-content">
+    <section class="global-feed">
         <h2 class="top">BANNER </h2>
-        <section>
-            <div class="container">
-                <div class="wrapper-global-feed">
-                    <feed :apiUrl="apiUrl"/>
-                    <div class="popular-tags">
-                        POPULAR TAGS
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+        <!-- ================ Component Feed -->
+        <feed :apiUrl="apiUrl"/>
+        <!-- ================ POPULAR TAGS -->
+        <div class="popular-tags">
+            POPULAR TAGS
+        </div>
+    </section>
 </template>
 
 <script>

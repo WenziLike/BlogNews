@@ -1,48 +1,47 @@
 <template>
-    <div>
+    <section class="feed">
         <div v-if="isLoading">Loading...</div>
         <div v-if="error">Something bad happened</div>
-        <div v-if="feed">
-            <div class="container">
-                <div class="feed" v-for="(article, index) in feed.articles" :key="index">
-
-                    <div class="feed-header">
-                        <div class="feed-header-items">
-                            <!-- ==================== Logo -->
-                            <router-link :to="{ name: 'userProfile', params: {slug: article.author.username}}">
-                                <img :src="article.author.image" :alt="article.author.username">
-                            </router-link>
-                            <!-- ==================== NickName -->
-                            <router-link class="author"
-                                         :to="{ name: 'userProfile',
+        <div v-if="feed" class="feed-wrapper">
+            <div class="feed-card" v-for="(article, index) in feed.articles" :key="index">
+                <div class="feed-header">
+                    <div class="feed-header-items">
+                        <!-- ==================== Logo -->
+                        <router-link :to="{ name: 'userProfile', params: {slug: article.author.username}}">
+                            <img :src="article.author.image" :alt="article.author.username">
+                        </router-link>
+                        <!-- ==================== NickName -->
+                        <router-link class="author"
+                                     :to="{ name: 'userProfile',
                                              params: {slug: article.author.username}}">
-                                {{ article.author.username }}
-                            </router-link>
-                        </div>
-                        <span class="date">{{ article.createdAt }}TUUUUUU</span>
-                        <div>ADD to FAVORITES</div>
-                    </div>
-                    <div class="feed-body">
-                        <router-link class="link"
-                                     :to="{name: 'article',params: { slug: article.slug }}">
-                            <h1 class="title">{{ article.title }}</h1>
-                            <p class="descr">{{ article.description }}</p>
+                            {{ article.author.username }}
                         </router-link>
                     </div>
-                    <div class="feed-footer">
-                        <span class="read">Read more ... </span>
-                        <div class="tag-list">TAG LIST</div>
-                    </div>
+                    <span class="date">{{ article.createdAt }}TUUUUUU</span>
+                    <div>ADD to FAVORITES</div>
                 </div>
-                <pagination
-                  :total="total"
-                  :limit="limit"
-                  :current-page="currentPage"
-                  :url="url"
-                />
+                <div class="feed-body">
+                    <router-link class="link"
+                                 :to="{name: 'article',params: { slug: article.slug }}">
+                        <h1 class="title">{{ article.title }}</h1>
+                        <p class="descr">{{ article.description }}</p>
+                    </router-link>
+                </div>
+                <hr>
+                <div class="feed-footer">
+                    <span class="read">Read more ... </span>
+                    <div class="tag-list">TAG LIST</div>
+                </div>
             </div>
         </div>
-    </div>
+        <!-- ================ Component Pagination -->
+        <pagination
+          :total="total"
+          :limit="limit"
+          :url="url"
+          :current-page="currentPage"
+        />
+    </section>
 </template>
 
 <script>
@@ -64,7 +63,7 @@ export default {
             total: 500,
             limit: 10,
             currentPage: 5,
-            url: '/tags/dragons'
+            url: '/'
         }
     },
     computed: {
