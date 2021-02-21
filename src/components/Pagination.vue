@@ -1,14 +1,16 @@
 <template>
     <section class="pagination">
-        <ul class="pagination-list">
-            <li v-for="page in pages" :key="page"
-                class="pagination-item" :class="{ active: currentPage === page }">
-                <router-link :to="{ path: url, query: { page: page }}"
-                             class="pagination-link">
-                    {{ page }}
-                </router-link>
-            </li>
-        </ul>
+        <div class="wrapper-pagination">
+            <ul class="pagination-list">
+                <li v-for="page in pages" :key="page"
+                    class="pagination-item" :class="{ active: currentPage === page }">
+                    <router-link :to="{ path: url, query: { page: page }}"
+                                 class="pagination-link">
+                        {{ page }}
+                    </router-link>
+                </li>
+            </ul>
+        </div>
     </section>
 </template>
 
@@ -38,7 +40,7 @@ export default {
     computed: {
         pages() {
             const pagesCount = Math.ceil(this.total / this.limit)
-            console.log(pagesCount)
+            // console.log(pagesCount)
             return range(1, pagesCount)
         }
     }

@@ -1,13 +1,14 @@
 <template>
     <section class="global-feed">
-        <!-- ================ Component Banner -->
         <banner/>
-        <!-- ================ Component Feed Toggler -->
+        <!-- ================ Component Feed Toggler-->
         <feed-toggler/>
         <!-- ================ Component Feed -->
         <feed :apiUrl="apiUrl"/>
-        <!-- ================ Component Popular Tags -->
-        <popular-tags/>
+        <!-- ================ POPULAR TAGS -->
+        <div class="popular-tags">
+            <popular-tags/>
+        </div>
     </section>
 </template>
 
@@ -18,7 +19,7 @@ import Banner from '@/components/Banner'
 import FeedToggler from '@/components/FeedToggler'
 
 export default {
-    name: 'globalFeed',
+    name: 'yourFeed',
     components: {
         Feed,
         PopularTags,
@@ -27,7 +28,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: '/articles'
+            apiUrl: '/articles/feed'
         }
     }
 }
