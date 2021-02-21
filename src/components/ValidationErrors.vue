@@ -1,9 +1,11 @@
 <template>
-    <ul class="error-messages">
-        <li v-for="errorMessage in errorMessages" :key="errorMessage">
-            {{ errorMessage }}
-        </li>
-    </ul>
+    <section class="error">
+        <ul class="error-messages">
+            <li v-for="errorMessage in errorMessages" :key="errorMessage">
+                {{ errorMessage }}
+            </li>
+        </ul>
+    </section>
 </template>
 
 <script>
