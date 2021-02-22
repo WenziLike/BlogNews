@@ -1,0 +1,23 @@
+.feed-toggle {
+    position: sticky;
+    top: 130px;
+    z-index: 999;
+    padding: 2% 0;
+    .nav {
+        &-item {
+            display: inline-block;
+        }
+        &-link {
+            padding: .4rem;
+            margin: 0 .4rem;
+            border-radius: 4px;
+            background-color: #2c3e50;
+            color: #fff;
+            //&.active {
+            //    color: #2c3e50;
+            //    background-color: #fff;
+            //    border: 1px solid #2c3e50;
+            //}
+        }
+    }
+}

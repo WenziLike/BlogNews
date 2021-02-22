@@ -3,9 +3,9 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: fixed;
         padding: .6%;
         box-shadow: 1px 1px 8px #434345;
-        position: fixed;
         width: 100%;
         z-index: 998;
         background-color: #ffffff;

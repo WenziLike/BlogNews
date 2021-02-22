@@ -11,10 +11,14 @@
 // ===============================================================
 // основные блоки страницы сайта modules
 @import "modules/navbar";
+@import "modules/burgerMenu";
 @import "modules/loginAndRegistration";
 @import "modules/globalFeed";
 @import "modules/feed";
 @import "modules/pagination";
+@import "modules/banner";
+@import "modules/popularTags";
+@import "modules/feedToggle";
 
 // ===============================================================
 // общие стили

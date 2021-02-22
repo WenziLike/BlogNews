@@ -1,34 +1,32 @@
 .pagination {
-    display: flex;
-    justify-content: center;
+    padding: 4% 0;
     &-list {
         display: flex;
         flex-wrap: wrap;
-        width: 60%;
     }
     &-item {
         margin: 5px;
         border-radius: 4px;
-        color: #2c3e50;
+        color: #ffffff;
         cursor: pointer;
-        border: 1px solid #606266;
+        background-color: #2c3e50;
     }
     .pagination-link {
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        width: 40px;
-        height: 40px;
-        color: #0077ff;
+        width: 30px;
+        height: 30px;
+        color: #ffffff;
     }
     &-item.active {
-        color: green;
-        background-color: #dddddd;
-        border: 1px solid #0077ff;
+        background-color: #ffffff;
+        border: 1px solid #2c3e50;
         box-shadow: 1px 2px 3px #606266;
         .pagination-link {
-            color: green;
+            color: #2c3e50;
+            font-weight: 900;
         }
 
     }

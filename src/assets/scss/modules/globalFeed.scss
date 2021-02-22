@@ -1,4 +1,8 @@
 .global-feed {
-    padding-top: 120px;
-    display: flex;
+    .container {
+        .wrapper-content {
+            display: flex;
+            flex-direction: row;
+        }
+    }
 }
