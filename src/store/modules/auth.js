@@ -143,7 +143,8 @@ const actions = {
                     context.commit(mutationTypes.getCurrentUserFailure)
                 })
         })
-    }
+    },
+    /* ==================================================== */
 }
 /* ==================================================== */
 export default {

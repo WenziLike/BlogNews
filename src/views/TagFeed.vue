@@ -1,15 +1,16 @@
 <template>
     <section class="global-feed">
+        <!-- ================ Component Banner -->
         <banner/>
-        <!-- ================ Component Feed Toggler-->
-        <feed-toggler/>
-        <!-- ================ Component Feed Toggler -->
-        <feed-toggler :tag-name="tagName"/>
-        <!-- ================ Component Feed -->
-        <feed :apiUrl="apiUrl"/>
-        <!-- ================ POPULAR TAGS -->
-        <div class="popular-tags">
-            <popular-tags/>
+        <div class="container">
+            <!-- ================ Component Feed Toggler -->
+            <feed-toggler :tag-name="tagName"/>
+            <div class="wrapper-content">
+                <!-- ================ Component Feed -->
+                <feed :apiUrl="apiUrl"/>
+                <!-- ================ Component Popular Tags -->
+                <popular-tags/>
+            </div>
         </div>
     </section>
 </template>

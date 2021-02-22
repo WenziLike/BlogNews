@@ -1,13 +1,9 @@
 <template>
     <!-- ======================== Header-->
     <TheNavBar/>
-    <div class="container">
-        <!-- ======================== Content-->
-        <div class="wrapper-content">
-                <router-view/>
-        </div>
-        <!-- ======================== Footer-->
-    </div>
+    <!-- ======================== Content-->
+    <router-view/>
+    <!-- ======================== Footer-->
 </template>
 
 <script>

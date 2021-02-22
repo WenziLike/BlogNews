@@ -12,14 +12,13 @@
                 </router-link>
             </li>
             <li class="nav-item" v-if="tagName">
-                <router-link :to="{name: 'tag'}" class="nav-link" :class="{active: routeName === 'tag'}">
+                <router-link :to="{ name: 'tag' }" class="nav-link" :class="{active: routeName === 'tag'}">
                     {{ tagName }}
                 </router-link>
             </li>
         </ul>
     </section>
 </template>
-
 <script>
 import { mapGetters } from 'vuex'
 import { getterTypes } from '@/store/modules/auth'
