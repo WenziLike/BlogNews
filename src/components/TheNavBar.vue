@@ -12,13 +12,13 @@
             </section>
             <section>
                 <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <router-link :to="{ name: 'globalFeed' }" class="navbar-link">
+                            Home
+                        </router-link>
+                    </li>
                     <!-- ======================= NavBar Menu -->
                     <template v-if="isAnonymous">
-                        <li class="navbar-item">
-                            <router-link :to="{ name: 'globalFeed' }" class="navbar-link">
-                                Home
-                            </router-link>
-                        </li>
                         <li class="navbar-item">
                             <router-link :to="{ name: 'register' }" class="navbar-link">
                                 Sign up
@@ -32,9 +32,15 @@
                     </template>
                     <!-- ======================= NavBar when logged in -->
                     <template v-if="isLoggedIn">
-                        <li class="navbar-item">
-                            <router-link :to="{ name: 'globalFeed' }" class="navbar-link">
-                                Home
+                        <li class="nav-item">
+                            <router-link class="navbar-link" :to="{name: 'createArticle'}">
+                                New Article
+                            </router-link>
+                        </li>
+
+                        <li class="nav-item">
+                            <router-link class="navbar-link" :to="{name: 'settings'}">
+                                Settings
                             </router-link>
                         </li>
                         <li>
@@ -62,9 +68,6 @@ import { mapGetters } from 'vuex'
 
 export default {
     name: 'TheNavBar',
-    data() {
-        return {}
-    },
     computed: {
         ...mapGetters({
             currentUser: getterTypes.currentUser,
