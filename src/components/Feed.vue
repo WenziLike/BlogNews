@@ -26,11 +26,9 @@
                                      :to="{name: 'article',params: { slug: article.slug }}">
                             <h1 class="title">{{ article.title }}</h1>
                             <p class="descr">{{ article.description }}</p>
+                            <span class="read">Read more ... </span>
+                            <tag-list :tags="article.tagList"></tag-list>
                         </router-link>
-                    </div>
-                    <div class="feed-footer">
-                        <span class="read">Read more ... </span>
-                        <div class="tag-list">TAG LIST</div>
                     </div>
                 </div>
             </div>
@@ -53,13 +51,15 @@ import { stringify, parseUrl } from 'query-string'
 import Pagination from '@/components/Pagination'
 import Loading from '@/components/Loading'
 import ErrorMessage from '@/components/ErrorMessage'
+import TagList from '@/components/TagList'
 
 export default {
     name: 'feed',
     components: {
         Pagination,
         Loading,
-        ErrorMessage
+        ErrorMessage,
+        TagList
     },
     props: {
         apiUrl: {
