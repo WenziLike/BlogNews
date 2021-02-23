@@ -1,36 +1,36 @@
 <template>
-    <section class="article">
-        <div class="banner">
+    <section class="">
+        <div class="">
             <div class="container" v-if="article">
                 <h1>{{ article.title }}</h1>
-                <div class="article-meta">
-                    <router-link :to="{name: 'userProfile', params: {slug:article.author.username}}">
+                <div class="">
+                    <router-link :to="{name: 'userProfile', params: {slug: article.author.username}}">
                         <img :src="article.author.image" alt="">
                     </router-link>
-                    <div class="article-info">
+                    <div class="">
                         <router-link :to="{name: 'userProfile', params: {slug:article.author.username}}">
                             {{ article.author.username }}
                         </router-link>
-                        <span class="date">{{ article.createdAt }}</span>
+                        <span class="">{{ article.createdAt }}</span>
                     </div>
-                    <span v-if="isAuthor">
-                        <router-link class="btn" :to="{name:'editArticle', params: {slug: article.slug}}">
+                    <div v-if="isAuthor">
+                        <router-link class="" :to="{name:'editArticle', params: {slug: article.slug}}">
                             Edit Article
                         </router-link>
-                        <button class="btn delete-article" @click="deleteArticle">Delete Article</button>
-                    </span>
+                        <button class="btn" @click="deleteArticle">Delete Article</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container-page">
+        <div class="">
             <loading v-if="isLoading"/>
-            <error-message v-if="error"/>
-            <div class="article-content" v-if="article">
+            <error-message v-if="isLoading" :message="error"/>
+            <div class="" v-if="article">
                 <div>
                     <div>
                         <p>{{ article.body }}</p>
                     </div>
-                    TAG LIST
+                    <tag-list :tags="article.tagList"/>
                 </div>
             </div>
         </div>
@@ -43,10 +43,11 @@ import { getterTypes as authGetterTypes } from '@/store/modules/auth'
 import { mapState, mapGetters } from 'vuex'
 import Loading from '@/components/Loading'
 import ErrorMessage from '@/components/ErrorMessage'
+import TagList from '@/components/TagList'
 
 export default {
     name: 'article',
-    components: { ErrorMessage, Loading },
+    components: { ErrorMessage, Loading, TagList },
     computed: {
         ...mapState({
             isLoading: state => state.article.isLoading,
@@ -65,11 +66,11 @@ export default {
     },
     mounted() {
         console.log(this.$route)
-        this.$store.dispatch(articleActionTypes.getArticlre, { slug: this.$route.params.slug })
+        this.$store.dispatch(articleActionTypes.getArticle, { slug: this.$route.params.slug })
     },
     methods: {
         deleteArticle() {
-            this.$store.dispatch(articleActionTypes.deleteArticlre, {
+            this.$store.dispatch(articleActionTypes.deleteArticle, {
                 slug: this.$route.params.slug
             }).then(() => {
                 this.$router.push({ name: 'globalFeed' })

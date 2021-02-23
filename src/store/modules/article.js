@@ -17,8 +17,8 @@ export const mutationTypes = {
 }
 
 export const actionTypes = {
-    getArticlre: '[article] get Articlre',
-    deleteArticlre: '[article] delete Articlre'
+    getArticle: '[article] get Articlre',
+    deleteArticle: '[article] delete Articlre'
 }
 /* ==================================================== */
 /* ================ */
@@ -44,11 +44,11 @@ const mutations = {
 }
 /* ==================================================== */
 const actions = {
-    [actionTypes.getArticlre](context, { slug }) {
+    [actionTypes.getArticle](context, { slug }) {
         return new Promise(resolve => {
             context.commit(mutationTypes.getArticleStart, slug)
             articleApi
-                .getArticlre(slug)
+                .getArticle(slug)
                 .then(article => {
                     context.commit(mutationTypes.getArticleSuccess, article)
                     resolve(article)
@@ -59,11 +59,11 @@ const actions = {
         })
     },
     /* ================ */
-    [actionTypes.deleteArticlre](context, { slug }) {
+    [actionTypes.deleteArticle](context, { slug }) {
         return new Promise(resolve => {
-            context.commit(mutationTypes.deleteArticleStart, slug)
+            context.commit(mutationTypes.deleteArticleStart)
             articleApi
-                .deleteArticlre(slug)
+                .deleteArticle(slug)
                 .then(() => {
                     context.commit(mutationTypes.deleteArticleSuccess)
                     resolve()
