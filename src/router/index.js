@@ -6,6 +6,7 @@ import Login from '@/views/Login'
 import YourFeed from '@/views/YourFeed'
 import TagFeed from '@/views/TagFeed'
 import Article from '@/views/Article'
+import CreateArticle from '@/components/CreateArticle'
 
 const routes = [
     {
@@ -37,7 +38,7 @@ const routes = [
     {
         path: '/articles/new',
         name: 'createArticle',
-        component: GlobalFeed
+        component: CreateArticle
     },
     {
         path: '/articles/:slug',

@@ -5,6 +5,7 @@ import feed from '@/store/modules/feed'
 import popularTags from '@/store/modules/popularTags'
 import base from '@/store/modules/base'
 import article from '@/store/modules/article'
+import createArticle from '@/store/modules/createArticle'
 
 export default createStore({
     modules: {
@@ -12,6 +13,7 @@ export default createStore({
         feed,
         popularTags,
         base,
-        article
+        article,
+        createArticle
     }
 })
