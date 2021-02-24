@@ -7,6 +7,7 @@ import base from '@/store/modules/base'
 import article from '@/store/modules/article'
 import createArticle from '@/store/modules/createArticle'
 import editArticle from '@/store/modules/editArticle'
+import settings from '@/store/modules/settings'
 
 export default createStore({
     modules: {
@@ -16,6 +17,7 @@ export default createStore({
         base,
         article,
         createArticle,
-        editArticle
+        editArticle,
+        settings
     }
 })

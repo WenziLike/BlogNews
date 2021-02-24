@@ -20,13 +20,18 @@ export const mutationTypes = {
     /* ================ */
     getCurrentUserStart: '[auth] Get Current User Start',
     getCurrentUserSuccess: '[auth] Get Current User Success',
-    getCurrentUserFailure: '[auth] Get Current User Failure'
+    getCurrentUserFailure: '[auth] Get Current User Failure',
+    /* ================ */
+    updateCurrentUserStart: '[auth] Update Current User Start',
+    updateCurrentUserSuccess: '[auth] Update Current User Success',
+    updateCurrentUserFailure: '[auth] Update Current User Failure'
 }
 
 export const actionTypes = {
     register: '[auth] Register',
     login: '[auth] Login',
-    getCurrentUser: '[auth] Get Current User'
+    getCurrentUser: '[auth] Get Current User',
+    updateCurrentUser: '[auth] Update Current User'
 }
 
 export const getterTypes = {
@@ -89,7 +94,16 @@ const mutations = {
         state.isLoading = false
         state.isLoggedIn = false
         state.currentUser = null
+    },
+    /* ================ getUsers */
+    [mutationTypes.updateCurrentUserStart](state) {
+    },
+    [mutationTypes.updateCurrentUserSuccess](state, payload) {
+        state.currentUser = payload
+    },
+    [mutationTypes.getCurrentUserFailure](state) {
     }
+
 }
 /* ==================================================== */
 const actions = {
@@ -145,6 +159,23 @@ const actions = {
         })
     },
     /* ==================================================== */
+    [actionTypes.updateCurrentUser](context, { currentUserInput }) {
+        return new Promise(resolve => {
+            context.commit(mutationTypes.updateCurrentUserStart)
+            authApi
+                .updateCurrentUser(currentUserInput)
+                .then(user => {
+                    // console.log(response)
+                    context.commit(mutationTypes.updateCurrentUserSuccess, user)
+                    resolve(user)
+                })
+                .catch(result => {
+                    context.commit(mutationTypes.updateCurrentUserFailure,
+                        result.response.data.errors
+                    )
+                })
+        })
+    }
 }
 /* ==================================================== */
 export default {
