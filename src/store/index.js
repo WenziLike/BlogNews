@@ -6,6 +6,7 @@ import popularTags from '@/store/modules/popularTags'
 import base from '@/store/modules/base'
 import article from '@/store/modules/article'
 import createArticle from '@/store/modules/createArticle'
+import editArticle from '@/store/modules/editArticle'
 
 export default createStore({
     modules: {
@@ -14,6 +15,7 @@ export default createStore({
         popularTags,
         base,
         article,
-        createArticle
+        createArticle,
+        editArticle
     }
 })

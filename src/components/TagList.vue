@@ -1,8 +1,8 @@
 <template>
-    <section class="">
-        <ul class="">
-            <li v-for="tag in tags" :key="tag"  style="color: #0f9b0f">
-                {{ tag }} HelloTags
+    <section class="tag-article">
+        <ul class="tag-article-list">
+            <li v-for="tag in tags" :key="tag" class="tag-article-item">
+                #{{ tag }}
             </li>
         </ul>
     </section>
