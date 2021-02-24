@@ -1,0 +1,14 @@
+.tag-article {
+    &-list {
+        display: flex;
+        text-align: center;
+    }
+    &-item {
+        padding: .1rem 1rem;
+        margin: .4rem;
+        border-radius: 25px;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: #0f9b0f;
+    }
+}

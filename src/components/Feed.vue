@@ -9,7 +9,7 @@
                         <div class="feed-header-items">
                             <!-- ==================== Logo -->
                             <router-link :to="{ name: 'userProfile', params: {slug: article.author.username}}">
-                                <img :src="article.author.image" :alt="article.author.username">
+                                <img :src="article.author.image" alt="Logo">
                             </router-link>
                             <!-- ==================== NickName -->
                             <router-link class="author"
@@ -29,6 +29,7 @@
                             <span class="read">Read more ... </span>
                             <tag-list :tags="article.tagList"></tag-list>
                         </router-link>
+                        <hr>
                     </div>
                 </div>
             </div>
@@ -97,15 +98,14 @@ export default {
             })
             const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
             this.$store.dispatch(actionTypes.getFeed, { apiUrl: apiUrlWithParams })
-            // console.group()
+            console.group()
             // // console.log(apiUrlWithParams)
             // // console.log('stryngifParams : ', stringifiedParams)
             // // console.log('stringify:', stringify)
-            // // console.log('parseUrl :', parsedUrl)
+            // console.log('parseUrl :', parsedUrl)
             // // console.log('init feed')
-            // // console.log('Array URL', this.feed)
-            // // console.log(this.feed.articles)
-            // console.groupEnd()
+            // console.log('Array URL', this.feed)
+            console.groupEnd()
         }
     },
     watch: {

@@ -12,13 +12,19 @@
 // основные блоки страницы сайта modules
 @import "modules/navbar";
 @import "modules/burgerMenu";
-@import "modules/loginAndRegistration";
 @import "modules/globalFeed";
 @import "modules/feed";
 @import "modules/pagination";
 @import "modules/banner";
 @import "modules/popularTags";
 @import "modules/feedToggle";
+@import "modules/tagList";
+@import "modules/editPage";
+@import "modules/loginAndRegistration";
 
 // ===============================================================
 // общие стили
+.validation-errors {
+    color: darkred;
+    font-weight: 600;
+}

@@ -1,49 +1,55 @@
 <template>
-    <div class="editor-page">
+    <section class="editor-page">
         <div class="container">
-            <validation-errors v-if="errors" :validation-errors="errors"/>
+            <validation-errors class="validation-errors" v-if="errors" :validation-errors="errors"/>
             <form @submit.prevent="onSubmit">
                 <fieldset>
-                    <fielset class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Article Title"
-                          v-model="title"
-                        >
-                    </fielset>
-                    <fielset class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Description"
-                          v-model="description"
-                        >
-                    </fielset>
-                    <fielset class="form-group">
-                        <textarea
-                          type="text"
-                          class="form-control"
-                          placeholder="What is this article about?"
-                          v-model="body"
-                        ></textarea>
-                    </fielset>
-                    <fielset class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Enter Tags"
-                          v-model="tagList"
-                        >
-                    </fielset>
-                    <fielset class="form-group">
+                    <fieldset class="form-group">
+                        <label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Article Title"
+                              v-model="title"
+                            >
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Description"
+                              v-model="description"
+                            >
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>
+                            <textarea
+                              class="form-control"
+                              placeholder="What is this article about?"
+                              v-model="body"
+                            ></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter Tags"
+                              v-model="tagList"
+                            >
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
                         <button class="btn" :disabled="isSubmitting">Publish Article</button>
-                    </fielset>
+                    </fieldset>
                 </fieldset>
-
             </form>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -51,9 +57,10 @@ import ValidationErrors from '@/components/ValidationErrors'
 
 export default {
     name: 'articleForm',
+    emits: ['articleSubmit'],
     components: { ValidationErrors },
     props: {
-        initialValue: {
+        initialValues: {
             type: Object,
             required: true
         },
@@ -68,10 +75,10 @@ export default {
     },
     data() {
         return {
-            title: '',
-            description: '',
-            body: '',
-            tagList: ''
+            title: this.initialValues.title,
+            description: this.initialValues.description,
+            body: this.initialValues.body,
+            tagList: this.initialValues.tagList.join(' ')
         }
     },
     methods: {
