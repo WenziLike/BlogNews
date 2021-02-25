@@ -19,7 +19,11 @@
                             </router-link>
                         </div>
                         <span class="date">{{ article.createdAt }}</span>
-                        <div>ADD to FAVORITES</div>
+                        <add-to-favorites
+                          :isFavorited="article.favorited"
+                          :articleSlug="article.slug"
+                          :favorites-count="article.favoritesCount">
+                        </add-to-favorites>
                     </div>
                     <div class="feed-body">
                         <router-link class="link"
@@ -53,6 +57,7 @@ import Pagination from '@/components/Pagination'
 import Loading from '@/components/Loading'
 import ErrorMessage from '@/components/ErrorMessage'
 import TagList from '@/components/TagList'
+import AddToFavorites from '@/components/AddToFavorites'
 
 export default {
     name: 'feed',
@@ -60,7 +65,8 @@ export default {
         Pagination,
         Loading,
         ErrorMessage,
-        TagList
+        TagList,
+        AddToFavorites
     },
     props: {
         apiUrl: {
@@ -98,14 +104,6 @@ export default {
             })
             const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
             this.$store.dispatch(actionTypes.getFeed, { apiUrl: apiUrlWithParams })
-            console.group()
-            // // console.log(apiUrlWithParams)
-            // // console.log('stryngifParams : ', stringifiedParams)
-            // // console.log('stringify:', stringify)
-            // console.log('parseUrl :', parsedUrl)
-            // // console.log('init feed')
-            // console.log('Array URL', this.feed)
-            console.groupEnd()
         }
     },
     watch: {
