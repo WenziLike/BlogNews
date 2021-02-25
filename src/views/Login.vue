@@ -1,5 +1,5 @@
 <template>
-    <section class="login">
+    <section class="login fix-top">
         <h1>Sign In</h1>
         <!-- ================ Validation -->
         <validation-errors

@@ -2,34 +2,12 @@
     <header>
         <nav class="navbar">
             <section>
-                <!-- ======================= Logo -->
-                <router-link :to="{name: 'globalFeed'}" class="navbar-logo">
-                    <h1>
-                        BlogNews
-                        <strong>Java Script</strong>
-                    </h1>
-                </router-link>
-            </section>
-            <section>
                 <ul class="navbar-list">
                     <li class="navbar-item">
                         <router-link :to="{ name: 'globalFeed' }" class="navbar-link">
                             Home
                         </router-link>
                     </li>
-                    <!-- ======================= NavBar Menu -->
-                    <template v-if="isAnonymous">
-                        <li class="navbar-item">
-                            <router-link :to="{ name: 'register' }" class="navbar-link">
-                                Sign up
-                            </router-link>
-                        </li>
-                        <li class="navbar-item">
-                            <router-link :to="{ name: 'login' }" class="navbar-link">
-                                Sign in
-                            </router-link>
-                        </li>
-                    </template>
                     <!-- ======================= NavBar when logged in -->
                     <template v-if="isLoggedIn">
                         <li class="nav-item">
@@ -50,9 +28,17 @@
                             </router-link>
                             <img :src="currentUser.image" :alt="currentUser.username" class="navbar-img">
                         </li>
-                        <li>
-                            <router-link :to="{ name: 'globalFeed'}" class="navbar-link">
-                                Log Out
+                    </template>
+                    <!-- ======================= NavBar Menu -->
+                    <template v-if="isAnonymous">
+                        <li class="navbar-item">
+                            <router-link :to="{ name: 'register' }" class="navbar-link">
+                                Sign up
+                            </router-link>
+                        </li>
+                        <li class="navbar-item">
+                            <router-link :to="{ name: 'login' }" class="navbar-link">
+                                Sign in
                             </router-link>
                         </li>
                     </template>

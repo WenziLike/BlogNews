@@ -1,11 +1,10 @@
 <template>
-    <section class="settings" v-if="currentUser">
+    <section class="settings fix-top" v-if="currentUser">
         <div class="container">
-            <h1>Settings</h1>
-            <validation-errors v-if="validationErrors" :validation-errors="validationErrors"/>
+            <h1 class="fix-center">Settings</h1>
+            <validation-errors class="validation-errors" v-if="validationErrors" :validation-errors="validationErrors"/>
             <form @submit.prevent="onSubmit">
                 <fieldset>
-
                     <fieldset class="form-group">
                         <label>
                             <input
@@ -63,7 +62,7 @@
                 </fieldset>
             </form>
             <hr>
-            <button class="btn" @click="logout">Or click here to logout</button>
+            <button class="btn logout" @click="logout">Or click here to logout</button>
         </div>
     </section>
 </template>

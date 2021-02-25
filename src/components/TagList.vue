@@ -1,7 +1,7 @@
 <template>
     <section class="tag-article">
         <ul class="tag-article-list">
-            <li v-for="tag in tags" :key="tag" class="tag-article-item">
+            <li v-for="tag in tags" :key="tag" class="hash-tag">
                 #{{ tag }}
             </li>
         </ul>

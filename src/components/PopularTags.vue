@@ -8,7 +8,7 @@
                 <router-link v-for="popularTag in popularTags"
                              :key="popularTag"
                              :to="{ name: 'tag', params: {slug: popularTag}}"
-                             class="tag-link">
+                             class="popular-tag">
                     {{ popularTag }}
                 </router-link>
             </div>

@@ -1,6 +1,6 @@
 <template>
-    <button @click="handleLike">
-        icon
+    <button @click="handleLike" class="add-to-favorites">
+        Like ♥︎
         <span>&nbsp;&nbsp; {{ favoritesCountOptimistic }}</span>
     </button>
 </template>

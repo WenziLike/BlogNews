@@ -1,6 +1,7 @@
 <template>
-    <section class="editor-page">
+    <section class="editor-page fix-top">
         <div class="container">
+            <h1 class="fix-center">New Article</h1>
             <validation-errors class="validation-errors" v-if="errors" :validation-errors="errors"/>
             <form @submit.prevent="onSubmit">
                 <fieldset>
