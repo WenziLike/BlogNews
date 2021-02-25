@@ -4,6 +4,7 @@
 // основные настройки сброса и подключения шрифтов "Главные"
 @import "utils/AModernCSSReset.scss";
 @import "utils/media.scss";
+@import "utils/myStylesLib";
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 // ===============================================================
 //отдельные компоненты сайта modules
@@ -15,16 +16,13 @@
 @import "modules/globalFeed";
 @import "modules/feed";
 @import "modules/pagination";
-@import "modules/banner";
 @import "modules/popularTags";
 @import "modules/feedToggle";
 @import "modules/tagList";
 @import "modules/editPage";
 @import "modules/loginAndRegistration";
+@import "modules/addToFavorites";
+@import "modules/userProfile";
 
 // ===============================================================
 // общие стили
-.validation-errors {
-    color: darkred;
-    font-weight: 600;
-}
