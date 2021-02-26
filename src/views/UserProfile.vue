@@ -2,59 +2,47 @@
     <div class="profile-page fix-top" v-if="userProfile">
         <div class="user-info">
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-md-10 offset-md-1">
-                        <img class="user-img" :src="userProfile.image" alt="logo"/>
-                        <h4>{{ userProfile.username }}</h4>
-                        <p>{{ userProfile.bio }}</p>
-                        <div>
-                            FOLLOW USER BUTTON
-                            <router-link
-                              v-if="isCurrentUserProfile"
-                              class="btn btn-sm btn-outline-secondary action-btn"
-                              :to="{name: 'settings'}"
-                            >
-                                Edit Profile Settings
-                            </router-link>
-                        </div>
+                <div class="user-profile fix-center">
+                    <img class="user-img mt-1" :src="userProfile.image" alt="logo"/>
+                    <h4 class="name">{{ userProfile.username }}</h4>
+                    <p>{{ userProfile.bio }}</p>
+                    <div>
+                        FOLLOW USER BUTTON
+                        <router-link
+                          v-if="isCurrentUserProfile"
+                          class="btn"
+                          :to="{name: 'settings'}"
+                        >
+                            Edit Profile Settings
+                        </router-link>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-10 offset-md-1">
-                    <div class="article-toggle">
-                        <ul class="nav nav-pills outline-active">
-                            <li class="nav-item">
-                                <router-link
-                                  :to="{
-                    name: 'userProfile',
-                    params: {slug: userProfile.username}
-                  }"
-                                  class="nav-link"
-                                  :class="{active: routeName === 'userProfile'}"
-                                >
-                                    My Posts
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link
-                                  :to="{
-                    name: 'userProfileFavorites',
-                    params: {slug: userProfile.username}
-                  }"
-                                  class="nav-link"
-                                  :class="{active: routeName === 'userProfileFavorites'}"
-                                >
-                                    Favorites Posts
-                                </router-link>
-                            </li>
-                        </ul>
-                    </div>
-                    <feed :api-url="apiUrl"></feed>
-                </div>
+            <div class="article-toggle">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <router-link :to="{
+                                    name: 'userProfile',
+                                    params: {slug: userProfile.username}}"
+                                     class="nav-link"
+                                     :class="{active: routeName === 'userProfile'}">
+                            My Posts
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link :to="{
+                                    name: 'userProfileFavorites',
+                                    params: {slug: userProfile.username}}"
+                                     class="nav-link"
+                                     :class="{active: routeName === 'userProfileFavorites'}">
+                            Favorites Posts
+                        </router-link>
+                    </li>
+                </ul>
             </div>
+            <feed :api-url="apiUrl"></feed>
         </div>
     </div>
 </template>

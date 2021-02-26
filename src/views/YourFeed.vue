@@ -1,5 +1,5 @@
 <template>
-    <section class="global-feed">
+    <section class="global-feed fix-top">
         <!-- ================ Component Banner -->
         <banner/>
         <div class="container">
