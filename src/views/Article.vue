@@ -1,23 +1,23 @@
 <template>
-    <section class="">
-        <div class="">
-            <div class="container" v-if="article">
-                <h1>{{ article.title }}</h1>
+    <section class="fix-top fix-center">
+        <div>
+            <div v-if="article">
+                <h1 class="article-title">{{ article.title }}</h1>
                 <div class="">
                     <router-link :to="{name: 'userProfile', params: {slug: article.author.username}}">
-                        <img :src="article.author.image" alt="">
+                        <img :src="article.author.image" alt="logo">
                     </router-link>
-                    <div class="">
-                        <router-link :to="{name: 'userProfile', params: {slug:article.author.username}}">
+                    <div>
+                        <router-link class="name" :to="{name: 'userProfile', params: {slug:article.author.username}}">
                             {{ article.author.username }}
                         </router-link>
-                        <span class="">{{ article.createdAt }}</span>
+                        <span class="article-date">{{ article.createdAt }}</span>
                     </div>
                     <div v-if="isAuthor">
-                        <router-link class="" :to="{name:'editArticle', params: {slug: article.slug}}">
+                        <router-link class="btn" :to="{name:'editArticle', params: {slug: article.slug}}">
                             Edit Article
                         </router-link>
-                        <button class="btn" @click="deleteArticle">Delete Article</button>
+                        <button class="btn delete" @click="deleteArticle">Delete Article</button>
                     </div>
                 </div>
             </div>

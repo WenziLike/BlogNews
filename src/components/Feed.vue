@@ -1,9 +1,9 @@
 <template>
     <section class="feed">
         <loading v-if="isLoading"/>
-        <error-message v-if="error"/>
+        <error-message v-if="error" class="validation-errors"/>
         <div v-if="feed">
-            <div class="feed-wrapper">
+            <div class="container">
                 <div class="feed-card" v-for="(article, index) in feed.articles" :key="index">
                     <div class="feed-header">
                         <div class="feed-header-items">
@@ -31,9 +31,9 @@
                             <h1 class="title">{{ article.title }}</h1>
                             <p class="descr">{{ article.description }}</p>
                             <span class="read">Read more ... </span>
+                            <hr>
                             <tag-list :tags="article.tagList"></tag-list>
                         </router-link>
-                        <hr>
                     </div>
                 </div>
             </div>

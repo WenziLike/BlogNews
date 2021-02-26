@@ -1,25 +1,16 @@
 .popular-tags {
     position: sticky;
-    top: 210px;
-    max-width: 20%;
+    top: 140px;
+    max-width: 24%;
     height: 30%;
     padding: 1rem;
     margin: 1rem;
     border-radius: 2px;
     text-align: center;
-    background-color: #dedede;
+    background-color: #2c2c2c;
+    box-shadow: 2px 2px 10px #000000;
     .tag-list {
         display: flex;
         flex-wrap: wrap;
-    }
-    .tag-item {
-        cursor: pointer;
-    }
-    .tag-link {
-        margin: .2rem;
-        padding: .3rem;
-        color: #fff;
-        border-radius: 4px;
-        background-color: #2c3e50;
     }
 }

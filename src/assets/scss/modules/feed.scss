@@ -1,15 +1,9 @@
 .feed {
-    &-wrapper {
-        width: 95%;
-    }
     &-card {
+        width: 80%;
         font-family: "Merriweather", serif;
         margin: 1rem 0;
         padding: 2rem 1rem;
-        //border-radius: 2px;
-        //box-shadow: 2px 2px 12px #434345;
-        background-color: #fff;
-        color: #2c3e50;
     }
     &-header {
         display: flex;
@@ -24,19 +18,13 @@
             align-items: center;
             .author {
                 padding-left: .6rem;
-                color: #2c3e50;
+                color: #e0ffff;
             }
-        }
-        img {
-            vertical-align: middle;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
         }
     }
     &-body {
         .link {
-            color: #2c3e50;
+            color: #e0ffff;
         }
         .descr {
             font-weight: 500;

@@ -7,9 +7,9 @@
     &-item {
         margin: 5px;
         border-radius: 4px;
-        color: #ffffff;
+        color: #2c3e50;
         cursor: pointer;
-        background-color: #2c3e50;
+        background-color: #fff;
     }
     .pagination-link {
         display: flex;
@@ -18,15 +18,16 @@
         cursor: pointer;
         width: 30px;
         height: 30px;
-        color: #ffffff;
+        color: #2c3e50;
     }
     &-item.active {
         background-color: #ffffff;
         border: 1px solid #2c3e50;
-        box-shadow: 1px 2px 3px #606266;
+        box-shadow: 2px 2px 4px #606266;
         .pagination-link {
-            color: #2c3e50;
+            color: #e0ffff;
             font-weight: 900;
+            background-color: #2c3e50;
         }
 
     }

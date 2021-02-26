@@ -1,5 +1,5 @@
 <template>
-    <section class="error-message">
+    <section class="error-message fix-center">
         <div>{{ message }}</div>
     </section>
 </template>

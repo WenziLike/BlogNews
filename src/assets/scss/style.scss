@@ -5,24 +5,22 @@
 @import "utils/AModernCSSReset.scss";
 @import "utils/media.scss";
 @import "utils/myStylesLib";
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 // ===============================================================
 //отдельные компоненты сайта modules
-
-// ===============================================================
-// основные блоки страницы сайта modules
 @import "modules/navbar";
 @import "modules/burgerMenu";
-@import "modules/globalFeed";
-@import "modules/feed";
 @import "modules/pagination";
 @import "modules/popularTags";
 @import "modules/feedToggle";
 @import "modules/tagList";
+@import "modules/addToFavorites";
+// ===============================================================
+// основные блоки страницы сайта modules
+@import "modules/globalFeed";
+@import "modules/feed";
 @import "modules/editPage";
 @import "modules/loginAndRegistration";
-@import "modules/addToFavorites";
 @import "modules/userProfile";
-
+@import "modules/article";
 // ===============================================================
 // общие стили
