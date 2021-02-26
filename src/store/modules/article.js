@@ -1,27 +1,26 @@
 import articleApi from '@/api/article'
-/* ==================================================== */
+
 const state = {
     data: null,
     isLoading: false,
     error: null
 }
-/* ==================================================== */
+
 export const mutationTypes = {
-    getArticleStart: '[article] get Article Start',
-    getArticleSuccess: '[article] get Article Success',
-    getArticleFailure: '[article] get Article Failure',
-    /* ================ */
-    deleteArticleStart: '[article] delete Article Start',
-    deleteArticleSuccess: '[article] delete Article Success',
-    deleteArticleFailure: '[article] delete Article Failure'
+    getArticleStart: '[article] Get article start',
+    getArticleSuccess: '[article] Get article success',
+    getArticleFailure: '[article] Get article failure',
+
+    deleteArticleStart: '[article] Delete article start',
+    deleteArticleSuccess: '[article] Delete article success',
+    deleteArticleFailure: '[article] Delete article failure'
 }
 
 export const actionTypes = {
-    getArticle: '[article] get Articlre',
-    deleteArticle: '[article] delete Articlre'
+    getArticle: '[article] Get article',
+    deleteArticle: '[article] Delete article'
 }
-/* ==================================================== */
-/* ================ */
+
 const mutations = {
     [mutationTypes.getArticleStart](state) {
         state.isLoading = true
@@ -34,7 +33,6 @@ const mutations = {
     [mutationTypes.getArticleFailure](state) {
         state.isLoading = false
     },
-    /* ================ */
     [mutationTypes.deleteArticleStart]() {
     },
     [mutationTypes.deleteArticleSuccess]() {
@@ -42,11 +40,11 @@ const mutations = {
     [mutationTypes.deleteArticleFailure]() {
     }
 }
-/* ==================================================== */
+
 const actions = {
     [actionTypes.getArticle](context, { slug }) {
         return new Promise(resolve => {
-            context.commit(mutationTypes.getArticleStart, slug)
+            context.commit(mutationTypes.getArticleStart)
             articleApi
                 .getArticle(slug)
                 .then(article => {
@@ -58,7 +56,6 @@ const actions = {
                 })
         })
     },
-    /* ================ */
     [actionTypes.deleteArticle](context, { slug }) {
         return new Promise(resolve => {
             context.commit(mutationTypes.deleteArticleStart)
@@ -74,9 +71,9 @@ const actions = {
         })
     }
 }
-/* ==================================================== */
+
 export default {
     state,
-    mutations,
-    actions
+    actions,
+    mutations
 }

@@ -4,9 +4,7 @@ const getUrl = slug => `/articles/${slug}/favorite`
 
 const addToFavorites = slug => {
     const url = getUrl(slug)
-    return axios
-        .post(url, {})
-        .then(response => response.data.article)
+    return axios.post(url, {}).then(response => response.data.article)
 }
 
 const removeFromFavorites = slug => {

@@ -32,7 +32,7 @@ const actions = {
                     resolve(article)
                 })
                 .catch(() => {
-                    context.commit(mutationTypes.addToFavoritesFailure)
+                    context.commit(mutationTypes.addToFavoritesFailure())
                 })
         })
     }

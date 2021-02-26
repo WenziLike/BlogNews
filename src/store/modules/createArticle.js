@@ -6,13 +6,13 @@ const state = {
 }
 
 export const mutationTypes = {
-    createArticleStart: '[createArticle] Create Article start',
-    createArticleSuccess: '[createArticle] Create Article success',
-    createArticleFailure: '[createArticle] Create Article failure'
+    createArticleStart: '[createArticle] Create article start',
+    createArticleSuccess: '[createArticle] Create article success',
+    createArticleFailure: '[createArticle] Create article failure'
 }
 
 export const actionTypes = {
-    createArticle: '[createArticle] Create Article'
+    createArticle: '[createArticle] Create article'
 }
 
 const mutations = {
@@ -32,14 +32,18 @@ const actions = {
     [actionTypes.createArticle](context, { articleInput }) {
         return new Promise(resolve => {
             context.commit(mutationTypes.createArticleStart)
-            articleApi.createArticle(articleInput).then(article => {
-                context.commit(mutationTypes.createArticleSuccess, article)
-                resolve(article)
-            }).catch(result => {
-                context.commit(mutationTypes.createArticleFailure,
-                    result.response.data.errors
-                )
-            })
+            articleApi
+                .createArticle(articleInput)
+                .then(article => {
+                    context.commit(mutationTypes.createArticleSuccess, article)
+                    resolve(article)
+                })
+                .catch(result => {
+                    context.commit(
+                        mutationTypes.createArticleFailure,
+                        result.response.data.errors
+                    )
+                })
         })
     }
 }
